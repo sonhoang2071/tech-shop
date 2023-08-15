@@ -92,4 +92,4 @@ Route::prefix('/')->name('client.')->group(function(){
 
 });
 
-Route::get('/home', [HomeController::class, 'index'])->name('testhome');
+
