@@ -1,0 +1,34 @@
+@extends('client.master')
+@section('content')
+    <div class="main-cart">
+        <div class="content-left">
+            <div class="content-left>
+
+            </div>
+        </div>
+
+        <div class="content-right"></div>
+
+    </div>
+@endsection
+<style>
+    .main-cart {
+        display: flex;
+        flex-wrap: nowrap;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+
+
+    }
+    .content-left{
+        flex: 1 1 840px;
+        background-color: red;
+    }
+    .content-right {
+        flex: 1 1 calc(100% - 840px);
+        margin-left: 20px;
+        display: block;
+        background-color: blue;
+        height: 10px;
+    }
+</style>

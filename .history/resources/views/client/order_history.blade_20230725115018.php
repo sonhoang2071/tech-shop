@@ -1,0 +1,2 @@
+@extends('client.master')
+sec

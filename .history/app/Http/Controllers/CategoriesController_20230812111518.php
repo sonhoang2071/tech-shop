@@ -1,0 +1,80 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\Category;
+class CategoriesController extends Controller
+{
+    private $category;
+    public function __construct(){
+        $this->category = new Category();
+    }
+    public function getList(){
+        $title = 'Admin Categories';
+        $categoryList = $this->category->getList();
+        return view('admin.category.list',compact('title','categoryList'))->with('msg','Thanh cong hehe');
+    }
+    public function getAdd(){
+        $title = 'Thêm mới loại sản phẩm';
+        return view('admin.category.add',compact('title'));
+    }
+    public function postAdd(Request $req) {
+        $req->validate([
+            'tenLoai' => 'required|unique:categories',
+            'moTa' => 'required|string'
+        ],[
+            'unique' => ':attribute đã tồn tại trên hệ thống',
+            'required' => ':attribute bắt buộc phải nhập',
+            'string' => ':attribute không đúng định dạng'
+        ],[
+            'tenLoai' => 'Tên loại sản phẩm',
+            'moTa' => 'Mô tả sản phẩm'
+        ]);
+        $data = [
+            "tenLoai" => $req->tenLoai,
+            "moTa" => $req->moTa,
+            "ngayNhap" => date('Y-m-d H:i:s')
+        ];
+        $this->category->add($data);
+        return redirect()->route('admin.categories.list')->with('msg','Thêm sản phẩm mới thành công');
+    }
+    public function getEdit($id){
+        $item = $this->category->getDetail($id);
+        $title = 'Cập nhật loại sản phẩm';
+        return view('admin.category.update',compact('title','item'));
+    }
+    public function postEdit(Request $req, $id) {
+        $req->validate([
+            'tenLoai' => 'required|unique:categories',
+            "moTa" => 'required|string'
+        ],[
+            'required' => ':attribute bắt buộc phải nhập',
+            'unique' => ':attribute đã tồn tại trên hệ thông',
+            'string' => ':attribute không đúng kiểu định dạng'
+        ],[
+            'tenLoai' => 'Tên loại sản phẩm',
+            'moTa' => 'Mô tả loại sản phẩm'
+        ]);
+        $data = [
+            "tenLoai" => $req->tenLoai,
+            "moTa" => $req->moTa
+        ];
+
+        $this->category->edit($id, $data);
+        return redirect()->route('admin.categories.list')->with('msg','Cập nhật thành công');
+    }
+    pubic function deletea($id = 0) {
+        if(!empty($id)){
+            $deletePro = $this->product->deleteProduct($id);
+            if($deletePro){
+                $msg = 'Xóa sản phẩm thành công';
+            } else {
+                $msg = 'Xóa sản phẩm thất bại. Vui lòng kiểm tra lại !!!';
+            }
+        } else {
+            $msg = 'Liên kết không tồn tại';
+        }
+        return back()->with('msg',$msg);
+    }
+}
