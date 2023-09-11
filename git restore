@@ -1,0 +1,36 @@
+[33mcommit ba2833de540407d129a0622a03f6166efab364b6[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: tech-shop <tolethanh06082003@gmail.com>
+Date:   Wed Aug 23 19:55:36 2023 +0700
+
+    update tinmezone2
+
+[33mcommit c307a7f1245ec9aec5e7f787bcc82a64f83118ee[m
+Merge: b2186f5 813d2b2
+Author: tech-shop <tolethanh06082003@gmail.com>
+Date:   Wed Aug 23 19:54:13 2023 +0700
+
+    Merge branch 'main' of https://github.com/sonhoang2071/tech-shop
+
+[33mcommit 813d2b2a4d2a352ded2bf138efc30bbd9d423cc9[m
+Author: sonhoang2071 <sonhoang2071@gmail.com>
+Date:   Wed Aug 23 19:49:01 2023 +0700
+
+    update time zone
+
+[33mcommit b2186f5363d7cef1ce5f851d2eb83c5ef9d702ae[m
+Author: tech-shop <tolethanh06082003@gmail.com>
+Date:   Wed Aug 23 19:44:16 2023 +0700
+
+    update timne zone
+
+[33mcommit 13bfdf50625d9ff7ae41425ddcf9de4976034aaa[m
+Author: sonhoang2071 <sonhoang2071@gmail.com>
+Date:   Tue Aug 15 20:36:01 2023 +0700
+
+    Update routes in web.php
+
+[33mcommit b33453fe90c0428af66a8350c2ff612e10ece182[m
+Author: sonhoang2071 <sonhoang2071@gmail.com>
+Date:   Tue Aug 15 20:19:43 2023 +0700
+
+    First commit
